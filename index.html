@@ -28,9 +28,22 @@
         else
             return `You lose.${computerSelection} beats ${playerSelection}`                 
     }
-    let computerSelection = computerPlay();
-    let playerSelection = "rock";
-    singleRound(computerSelection,computerPlay());
-    
+    function game(){
+        let playerWinCount = 0;
+        for(let i=0;i<5;i++){
+            let computerSelection = computerPlay();
+            let playerSelection = prompt();
+            let result = singleRound(computerSelection,playerSelection);
+            console.log(result);
+            if(result.indexOf("win") !== -1)
+                playerWinCount++
+        }
+        if(playerWinCount >= 3)
+            console.log("You win.");
+        else
+            console.log("You lose.");    
+    }
+
+    game();    
 </script>
 </html>
