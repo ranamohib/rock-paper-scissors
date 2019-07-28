@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function computerPlay(){
+        let move=["rock","paper","scissors"];
+        let pick=Math.floor(Math.random()*3);
+        return move[pick];
+    }
+    function singleRound(computerSelection,playerSelection){
+        let playerSelectionSmall = playerSelection.toLowerCase();
+        if(playerSelectionSmall==computerSelection)
+            return"It's a tie!";
+        else if(playerSelectionSmall==="rock" && computerSelection ==="scissors" )
+            return'Rock beats scissors.You win.';
+        else if(playerSelectionSmall==="paper" && computerSelection==="rock")
+            return'Paper beats rock.You win.';
+        else if(playerSelectionSmall==="scissors"&& computerSelection==="paper")
+            return'Scissors beat paper.You win';
+        else
+            return `You lose.${computerSelection} beats ${playerSelection}`                 
+    }
+    let computerSelection = computerPlay();
+    let playerSelection = "rock";
+    singleRound(computerSelection,computerPlay());
+    
+</script>
+</html>
